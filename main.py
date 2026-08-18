@@ -3,34 +3,43 @@ import os
 def limpar_tela():
     os.system('cls' if os.name == 'nt' else 'clear')
 
-def menu_principla():
+def menu_principal():
     while True:
-        print("""
-        === Planejador de Eventos do Campus ===
-        1. Adicionar Evento
-        2. Ver Todos os Eventos
-        3. Filtrar por Categoria
-        4. Marcar Evento como Participado
-        5. Gerar Relatório
-        6. Sair 
-        """)
+        print("=== Planejador de Eventos do Campus ===")
+        print("1. Adicionar Evento")
+        print("2. Ver Todos os Eventos")
+        print("3. Filtrar por Categoria")
+        print("4. Marcar Evento como Participado")
+        print("5. Gerar Relatório")
+        print("6. Sair ")
 
         opcoes = input("Digite o numero da opção que deseja: ")
 
-        if opcoes == "1":
+        if opcoes == '1':
             limpar_tela()
-            
-        elif opcoes == "2":
-            limpar_tela()
+            print("teste01")
 
-        elif opcoes == "3":
+        elif opcoes == '2':
             limpar_tela()
+            print("teste02")
+        elif opcoes == '2':
+            limpar_tela()
+            print("teste03")
+        elif opcoes == '4':
+            limpar_tela()
+            print("teste04")
 
-        elif opcoes == "4":
+        elif opcoes == '5':
             limpar_tela()
+            print("teste05")
 
-        elif opcoes == "5":
+        elif opcoes == '6':
             limpar_tela()
+            print("teste06")
+        
+        else:
+            limpar_tela()
+            print("opcao digitada nao é valida")
 
-        elif opcoes == "6":
-            limpar_tela()
+if __name__ == "__main__":
+    menu_principal()
