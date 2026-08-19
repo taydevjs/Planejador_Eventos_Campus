@@ -1,10 +1,12 @@
 import os
-
+import funcoes_aluno_A
 def limpar_tela():
     os.system('cls' if os.name == 'nt' else 'clear')
-
+    
 def menu_principal():
+
     while True:
+        
         print("=== Planejador de Eventos do Campus ===")
         print("1. Adicionar Evento")
         print("2. Ver Todos os Eventos")
@@ -17,8 +19,9 @@ def menu_principal():
 
         if opcoes == '1':
             limpar_tela()
+            funcoes_aluno_A.adicionar_evento()
             print("teste01")
-
+            
         elif opcoes == '2':
             limpar_tela()
             print("teste02")

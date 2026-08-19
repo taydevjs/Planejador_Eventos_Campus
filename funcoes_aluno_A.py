@@ -2,11 +2,11 @@
 lista_eventos = []
 lista_eventos_geral = []
 
-#função de mostra a lista de eventos
+#funcao de mostra a lista de eventos
 def mostrar_eventos():
     print(lista_eventos_geral)
 
-# função para confirmar no enter
+# funcao para confirmar no enter
 def enter_confirm():
     verificar_enter = input("digite ENTER para continuar...")
     if verificar_enter == ' ':
@@ -14,7 +14,7 @@ def enter_confirm():
     else:
         print("Voce nao apertou enter")
 
-# função de dar espaço entre resultados    
+# funcao de dar espaço entre resultados    
 def espaco_vazio():
     print("")
 
@@ -35,30 +35,31 @@ def adicionar_evento():
         espaco_vazio()
         enter_confirm()
         espaco_vazio()
+        
+def menu_adicionar_evento():
+    while True:
+        print("1. Mostrar os eventos atuais")
+        print("2. Adicionar um evento a sua lista de eventos")
+        print("3. sair\n")
 
-while True:
-    print("1. Mostrar os eventos atuais")
-    print("2. Adicionar um evento a sua lista de eventos")
-    print("3. sair\n")
+        opcao =  input("digite a opção desejada: ")
+        if opcao == '1':
+            espaco_vazio()
+            mostrar_eventos()
+            espaco_vazio()
+            enter_confirm()
+            espaco_vazio()
 
-    opcao =  input("digite a opção desejada: ")
-    if opcao == '1':
-        espaco_vazio()
-        mostrar_eventos()
-        espaco_vazio()
-        enter_confirm()
-        espaco_vazio()
+        elif opcao == '2':
+            adicionar_evento()
 
-    elif opcao == '2':
-        adicionar_evento()
-
-    elif opcao == '3':
-        print("\ntchau :)\n")
-        break
-    
-    else:
-        espaco_vazio()
-        print("voce nao digitou nenhum carctere disponivel, tente novamente")
-        espaco_vazio()
+        elif opcao == '3':
+            print("\ntchau :)\n")
+            break
+        
+        else:
+            espaco_vazio()
+            print("voce nao digitou nenhum carctere disponivel, tente novamente")
+            espaco_vazio()
     
 
