@@ -1,7 +1,7 @@
 
 lista_eventos = []
 lista_eventos_geral = []
-
+#AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 #função de mostra a lista de eventos
 def mostrar_eventos():
     print(lista_eventos_geral)
