@@ -14,15 +14,10 @@ def mostraEventoDetalhado (evento):
 
 
 def mostrar_eventos(lista_eventos):
-    for evento in lista_eventos:
-        print("Nome do Evento: ", evento["nome"])
+    for indice, evento in enumerate(lista_eventos):
+        print(indice+1,") Nome: ", evento["nome"])
 
 
-
-
-# funcao de dar espaço entre resultados    
-def espaco_vazio():
-    print("")
 
 def lerValoresEvento ():
     adicionar_evento_nome  = input("\ndigite o nome evento que voce deseja adicionar: ")
@@ -53,11 +48,11 @@ def menu_adicionar_evento():
 
         opcao =  input("digite a opção desejada: ")
         if opcao == '1':
-            espaco_vazio()
+            main.espaco_vazio()
             mostrar_eventos()
-            espaco_vazio()
+            main.espaco_vazio()
             main.enter_confirm()
-            espaco_vazio()
+            main.espaco_vazio()
 
         elif opcao == '2':
             adicionarEvento()
@@ -67,8 +62,8 @@ def menu_adicionar_evento():
             break
         
         else:
-            espaco_vazio()
+            main.espaco_vazio()
             print("voce nao digitou nenhum carctere disponivel, tente novamente")
-            espaco_vazio()
+            main.espaco_vazio()
     
 

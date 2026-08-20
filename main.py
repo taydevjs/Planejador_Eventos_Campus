@@ -2,6 +2,10 @@ import os
 import funcoes_aluno_A
 import funcoes_aluno_B
 
+# funcao de dar espaço entre resultados    
+def espaco_vazio():
+    print("")
+
 # funcao para confirmar no enter
 def enter_confirm():
     verificar_enter = input("digite ENTER para continuar...")
@@ -25,20 +29,31 @@ def displayMenu():
 def menu_principal():
 
     while True:
-        
+        espaco_vazio()
         displayMenu()   
+        espaco_vazio()
 
         opcoes = input("Digite o numero da opção que deseja: ")
 
         if opcoes == '1':
             limpar_tela()
+
             nome , data, local , genero = funcoes_aluno_A.lerValoresEvento()
-            funcoes_aluno_A.adicionar_evento(funcoes_aluno_A.lista_eventos, nome, data , local , genero)
-            print("teste01")
-            
+            funcoes_aluno_A.adicionarEvento(funcoes_aluno_A.lista_eventos, nome, data , local , genero)
+
+            espaco_vazio()
+            enter_confirm()
+            espaco_vazio()
+
         elif opcoes == '2':
             limpar_tela()
-            print("teste02")
+            print("Lista atual de eventos: ")
+            espaco_vazio()
+            funcoes_aluno_A.mostrar_eventos(funcoes_aluno_A.lista_eventos)
+            espaco_vazio()
+            enter_confirm()
+            espaco_vazio()
+
         elif opcoes == '2':
             limpar_tela()
             print("teste03")
