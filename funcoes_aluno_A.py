@@ -2,9 +2,19 @@
 lista_eventos = []
 lista_eventos_geral = []
 
-#funcao de mostra a lista de eventos
-def mostrar_eventos():
-    print(lista_eventos_geral)
+def mostraEventoDetalhado (evento):
+    print("Nome do evento:", evento["nome"])
+    print("Data do evento:", evento["data"])
+    print("Local do evento:", evento["local"])
+    print("Categoria do evento:", evento["categoria"])
+    print("\n")
+
+
+
+def mostrar_eventos(lista_eventos):
+    for evento in lista_eventos:
+        print("Nome do Evento: ", evento["nome"])
+
 
 # funcao para confirmar no enter
 def enter_confirm():
@@ -18,24 +28,27 @@ def enter_confirm():
 def espaco_vazio():
     print("")
 
+def lerValoresEvento ():
+    adicionar_evento_nome  = input("\ndigite o nome evento que voce deseja adicionar: ")
+    adicionar_evento_data  = input("\ndigite a data de realização dele: ")
+    adicionar_evento_local  = input("\ndigite o local onde acontecera o evento: ")
+    adicionar_evento_genero  = input("\ndigite qual o tipo de evento: ")
+    return adicionar_evento_nome, adicionar_evento_data, adicionar_evento_local, adicionar_evento_genero
+
 # função para adicionar listas
-def adicionar_evento():
-        adicionar = list()
-        adicionar_evento_nome  = input("\ndigite o nome evento que voce deseja adicionar: ")
-        adicionar_evento_data  = input("\ndigite a data de realização dele: ")
-        adicionar_evento_local  = input("\ndigite o local onde acontecera o evento: ")
-        adicionar_evento_genero  = input("\ndigite qual o tipo de evento: ")
-        adicionar.append(adicionar_evento_nome)
-        adicionar.append(adicionar_evento_data)
-        adicionar.append(adicionar_evento_local)
-        adicionar.append(adicionar_evento_genero)
-        lista_eventos_geral.append(adicionar)
-        espaco_vazio()
-        mostrar_eventos()
-        espaco_vazio()
-        enter_confirm()
-        espaco_vazio()
+def adicionarEvento(listaEventos, nome, data, local, categoria):            
+    evento = {
+        "nome": nome ,
+        "data": data,
+        "local": local,
+        "categoria": categoria
+    }
+    listaEventos.append(evento)
         
+        
+#funcao de mostra a lista de eventos
+
+
 def menu_adicionar_evento():
     while True:
         print("1. Mostrar os eventos atuais")
@@ -51,7 +64,7 @@ def menu_adicionar_evento():
             espaco_vazio()
 
         elif opcao == '2':
-            adicionar_evento()
+            adicionarEvento()
 
         elif opcao == '3':
             print("\ntchau :)\n")
