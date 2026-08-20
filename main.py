@@ -1,95 +1,45 @@
 import os
-from funcoes_aluno_B import (
-    displayMenu,
-    getEscolhaDoUsuario,
-    filtrarEventosPorCategoria,
-    marcarEventoAtendido,
-    gerarRelatorio,
-)
-
-
-try:
-    from funcoes_aluno_A import adicionar_evento
-except ImportError:
-    # Caso a função do Estudante A tenha outro nome ou ainda não esteja implementada:
-    def adicionar_evento(listaEventos):
-        nome = input("Nome do evento: ")
-        data = input("Data (AAAA-MM-DD): ")
-        local = input("Local: ")
-        categoria = input("Categoria: ")
-
-        novo_evento = {
-            "nome": nome,
-            "data": data,
-            "local": local,
-            "categoria": categoria,
-            "participado": False,
-        }
-        listaEventos.append(novo_evento)
-        print("\nEvento adicionado com sucesso!")
-
 
 def limpar_tela():
-    os.system("cls" if os.name == "nt" else "clear")
+    os.system('cls' if os.name == 'nt' else 'clear')
 
-
-def main():
-    listaEventos = []
-
+def menu_principal():
     while True:
-        displayMenu()
-        opcao = getEscolhaDoUsuario()
+        print("=== Planejador de Eventos do Campus ===")
+        print("1. Adicionar Evento")
+        print("2. Ver Todos os Eventos")
+        print("3. Filtrar por Categoria")
+        print("4. Marcar Evento como Participado")
+        print("5. Gerar Relatório")
+        print("6. Sair ")
 
-        if opcao == 1:
-            adicionar_evento(listaEventos)
+        opcoes = input("Digite o numero da opção que deseja: ")
 
-        elif opcao == 2:
-            print("\n--- TODOS OS EVENTOS ---")
-            if not listaEventos:
-                print("Nenhum evento cadastrado.")
-            else:
-                for index, evento in enumerate(listaEventos, start=1):
-                    status = "[X]" if evento.get("participado", False) else "[ ]"
-                    print(
-                        f"{index}. {status} {evento['nome']} - {evento['data']} | Local: {evento['local']} | Categoria: {evento['categoria']}"
-                    )
+        if opcoes == '1':
+            limpar_tela()
+            print("teste01")
 
-        elif opcao == 3:
-            categoriaBusca = input("Digite a categoria para filtrar: ")
-            filtrados = filtrarEventosPorCategoria(listaEventos, categoriaBusca)
+        elif opcoes == '2':
+            limpar_tela()
+            print("teste02")
+        elif opcoes == '2':
+            limpar_tela()
+            print("teste03")
+        elif opcoes == '4':
+            limpar_tela()
+            print("teste04")
 
-            print(f"\n--- EVENTOS DA CATEGORIA '{categoriaBusca}' ---")
-            if not filtrados:
-                print("Nenhum evento encontrado nesta categoria.")
-            else:
-                for evento in filtrados:
-                    status = "[X]" if evento.get("participado", False) else "[ ]"
-                    print(
-                        f"- {status} {evento['nome']} ({evento['data']}) em {evento['local']}"
-                    )
+        elif opcoes == '5':
+            limpar_tela()
+            print("teste05")
 
-        elif opcao == 4:
-            if not listaEventos:
-                print("\nNenhum evento cadastrado para marcar.")
-            else:
-                try:
-                    id_evento = int(
-                        input("Digite o número (ID) do evento que participou: ")
-                    )
-                    marcarEventoAtendido(listaEventos, id_evento)
-                except ValueError:
-                    print("\n❌ Por favor, informe um número válido.")
-
-        elif opcao == 5:
-            gerarRelatorio(listaEventos)
-
-        elif opcao == 6:
-            print("\nSaindo do Planejador de Eventos. Até logo!")
-            break
-
+        elif opcoes == '6':
+            limpar_tela()
+            print("teste06")
+        
         else:
-            print("\n❌ Opção inválida. Tente novamente.")
-
+            limpar_tela()
+            print("opcao digitada nao é valida")
 
 if __name__ == "__main__":
-    main()
+    menu_principal()
