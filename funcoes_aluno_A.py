@@ -1,3 +1,5 @@
+import main
+import funcoes_aluno_B
 
 lista_eventos = []
 lista_eventos_geral = []
@@ -16,13 +18,7 @@ def mostrar_eventos(lista_eventos):
         print("Nome do Evento: ", evento["nome"])
 
 
-# funcao para confirmar no enter
-def enter_confirm():
-    verificar_enter = input("digite ENTER para continuar...")
-    if verificar_enter == ' ':
-        return 0
-    else:
-        print("Voce nao apertou enter")
+
 
 # funcao de dar espaço entre resultados    
 def espaco_vazio():
@@ -60,7 +56,7 @@ def menu_adicionar_evento():
             espaco_vazio()
             mostrar_eventos()
             espaco_vazio()
-            enter_confirm()
+            main.enter_confirm()
             espaco_vazio()
 
         elif opcao == '2':

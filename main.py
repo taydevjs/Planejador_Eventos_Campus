@@ -1,5 +1,14 @@
 import os
 import funcoes_aluno_A
+import funcoes_aluno_B
+
+# funcao para confirmar no enter
+def enter_confirm():
+    verificar_enter = input("digite ENTER para continuar...")
+    if verificar_enter == ' ':
+        return 0
+    else:
+        print("Voce nao apertou enter")
 
 def limpar_tela():
     os.system('cls' if os.name == 'nt' else 'clear')
