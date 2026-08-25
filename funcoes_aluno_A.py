@@ -1,41 +1,45 @@
+import main
+import funcoes_aluno_B
 
 lista_eventos = []
 lista_eventos_geral = []
 
-#funcao de mostra a lista de eventos
-def mostrar_eventos():
-    print(lista_eventos_geral)
+def mostraEventoDetalhado (evento):
+    print("Nome do evento:", evento["nome"])
+    print("Data do evento:", evento["data"])
+    print("Local do evento:", evento["local"])
+    print("Categoria do evento:", evento["categoria"])
+    print("\n")
 
-# funcao para confirmar no enter
-def enter_confirm():
-    verificar_enter = input("digite ENTER para continuar...")
-    if verificar_enter == ' ':
-        return 0
-    else:
-        print("Voce nao apertou enter")
 
-# funcao de dar espaço entre resultados    
-def espaco_vazio():
-    print("")
+
+def mostrar_eventos(lista_eventos):
+    for indice, evento in enumerate(lista_eventos):
+        print(indice+1,") Nome: ", evento["nome"])
+
+
+
+def lerValoresEvento ():
+    adicionar_evento_nome  = input("\ndigite o nome evento que voce deseja adicionar: ")
+    adicionar_evento_data  = input("\ndigite a data de realização dele: ")
+    adicionar_evento_local  = input("\ndigite o local onde acontecera o evento: ")
+    adicionar_evento_genero  = input("\ndigite qual o tipo de evento: ")
+    return adicionar_evento_nome, adicionar_evento_data, adicionar_evento_local, adicionar_evento_genero
 
 # função para adicionar listas
-def adicionar_evento():
-        adicionar = list()
-        adicionar_evento_nome  = input("\ndigite o nome evento que voce deseja adicionar: ")
-        adicionar_evento_data  = input("\ndigite a data de realização dele: ")
-        adicionar_evento_local  = input("\ndigite o local onde acontecera o evento: ")
-        adicionar_evento_genero  = input("\ndigite qual o tipo de evento: ")
-        adicionar.append(adicionar_evento_nome)
-        adicionar.append(adicionar_evento_data)
-        adicionar.append(adicionar_evento_local)
-        adicionar.append(adicionar_evento_genero)
-        lista_eventos_geral.append(adicionar)
-        espaco_vazio()
-        mostrar_eventos()
-        espaco_vazio()
-        enter_confirm()
-        espaco_vazio()
+def adicionarEvento(listaEventos, nome, data, local, categoria):            
+    evento = {
+        "nome": nome ,
+        "data": data,
+        "local": local,
+        "categoria": categoria
+    }
+    listaEventos.append(evento)
         
+        
+#funcao de mostra a lista de eventos
+
+
 def menu_adicionar_evento():
     while True:
         print("1. Mostrar os eventos atuais")
@@ -44,22 +48,22 @@ def menu_adicionar_evento():
 
         opcao =  input("digite a opção desejada: ")
         if opcao == '1':
-            espaco_vazio()
+            main.espaco_vazio()
             mostrar_eventos()
-            espaco_vazio()
-            enter_confirm()
-            espaco_vazio()
+            main.espaco_vazio()
+            main.enter_confirm()
+            main.espaco_vazio()
 
         elif opcao == '2':
-            adicionar_evento()
+            adicionarEvento()
 
         elif opcao == '3':
             print("\ntchau :)\n")
             break
         
         else:
-            espaco_vazio()
+            main.espaco_vazio()
             print("voce nao digitou nenhum carctere disponivel, tente novamente")
-            espaco_vazio()
+            main.espaco_vazio()
     
 
