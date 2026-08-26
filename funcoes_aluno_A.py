@@ -15,7 +15,7 @@ def mostraEventoDetalhado (evento):
 
 def mostrar_eventos(lista_eventos):
     for indice, evento in enumerate(lista_eventos):
-        print(indice+1,") Nome: ", evento["nome"], evento["id"])
+        print(indice+1,") Nome: ", evento["nome"])
 
 
 
@@ -87,7 +87,9 @@ def pesquisaPorNomeEventos(eventos):
         for evento in eventos:
             if evento["nome"] == nome_buscado:
                 flag = True
-                mostraEventoDetalhado(evento)       
+                mostraEventoDetalhado(evento) 
+
+                main.enter_confirm()
                 main.espaco_vazio()
         
         if (flag == False):
@@ -98,13 +100,19 @@ def deletarEvento(listaparaDeletar):
     achei = None
     main.espaco_vazio()    
     for evento in listaparaDeletar:
-        print("Evento: ", evento)
         if evento_a_deletar == evento["id"]:            
             achei = evento
             break
 
     if (achei != None):
-        listaparaDeletar.remove(achei)
+        confirmar_delet = input("Digite ENTER para confirmar que quer deletar o evento...")
+        if confirmar_delet == '':
+            listaparaDeletar.remove(achei)
+            main.espaco_vazio()
+            print("O evento foi deletado!")
+            main.espaco_vazio()
+        else:
+            print("Voce nao digitou ENTER")
     else:
         print("Nao foi possivel deletar o evento")
 

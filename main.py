@@ -31,7 +31,6 @@ def displayMenu():
 def menu_principal():
 
     while True:
-        espaco_vazio()
         displayMenu()   
         espaco_vazio()
 
@@ -73,7 +72,6 @@ def menu_principal():
         elif opcoes == '6':
             limpar_tela()
             funcoes_aluno_A.deletarEvento(funcoes_aluno_A.lista_eventos)
-            print("teste06")
 
         elif opcoes == '7':
             limpar_tela()
