@@ -1,12 +1,14 @@
 import main
 import funcoes_aluno_A
 
+
 def filtrarEventosPorCategoria(listaEventos, categoria):
     eventos_filtrados = []
     for evento in listaEventos:
         if evento["categoria"].lower() == categoria.lower():
             eventos_filtrados.append(evento)
     return eventos_filtrados
+
 
 def marcarEventoAtendido(listaEventos, id_evento):
     encontrou = False
@@ -19,6 +21,7 @@ def marcarEventoAtendido(listaEventos, id_evento):
             
     if encontrou == False:
         print("\nNenhum evento foi encontrado com esse ID.")
+
 
 def gerarRelatorio(listaEventos):
     total_eventos = len(listaEventos)
@@ -40,11 +43,13 @@ def gerarRelatorio(listaEventos):
         print("Porcentagem de participacao:", porcentagem, "%")
         print("\nEventos por categoria:")
         
+        
         categorias_vistas = []
         for evento in listaEventos:
             cat = evento["categoria"]
             if cat not in categorias_vistas:
                 categorias_vistas.append(cat)
+                
                 
                 contador = 0
                 for e in listaEventos:
